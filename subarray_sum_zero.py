@@ -6,7 +6,7 @@ import itertools
 
 
 def check_sub_array_zero(input_list: list) -> list:
-    """ Function that gives sub-arrays which has 0 in them
+    """ Function that gives sub-arrays which has a sum = 0 in them
 
     Returns:
         list: input is a large python list and output is multiple lists! 

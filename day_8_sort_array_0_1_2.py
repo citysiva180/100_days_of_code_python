@@ -11,7 +11,7 @@ def sort_012_list(arr):
     new_list = []
     output = Counter(arr)
     for key, value in output.items():
-        for items in range(value):
+        for _ in range(value):
             new_list.append(key)
     return (new_list)
 

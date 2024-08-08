@@ -17,7 +17,8 @@ def sort_012_list(arr):
 
 
 arr = [0, 1, 2, 1, 0, 1, 2, 0, 2, 1, 0]
-sort_012_list(arr)
+output = sort_012_list(arr)
+print(output)
 
 # GPT Solution!
 # understanding - Instead of using APIs to create a new array with values,

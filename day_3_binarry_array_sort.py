@@ -16,9 +16,9 @@ def binary_array_sort(binary_array):
             ones_count += 1
 
     binary_array.clear()
-    for items in range(zero_count):
+    for _ in range(zero_count):
         binary_array.append(0)
-    for items in range(ones_count):
+    for _ in range(ones_count):
         binary_array.append(1)
 
     return binary_array
@@ -45,7 +45,7 @@ def sort_binary_array(arr):
             left += 1
             right -= 1
     return arr
- 
+
 
 # Example usage
 binary_array = [1, 0, 1, 0, 1, 0, 0, 1]

@@ -18,6 +18,9 @@
 
 # import code snippets and libraries
 
+from collections import ChainMap
+from collections import deque
+from collections import namedtuple
 from functools import reduce
 import functools
 
@@ -138,7 +141,11 @@ print(p1 <= p2)  # False, because 30 is not less than or equal to 25
 print(p1 == p2)  # False, because 30 is not equal to 25
 
 
-print(sorted({1: 'D', 2: 'B', 3: 'B', 4: 'E', 5: 'A'}))
+# Explanation
+# __eq__ Method:         You must still define the __eq__ method, which checks if two Person objects are equal based on age.
+# One Comparison Method: You only need to define one of the other comparison methods, such as __lt__.
+# Automatic Generation:  @functools.total_ordering automatically generates the other comparison methods (__le__, __gt__, __ge__) based on the methods you define.
+
 
 # -----------------------------------------------------------------
 
@@ -211,3 +218,126 @@ output = enumerate(['apple', 'banana', 'cherry'])
 
 # ------------------------------------------------------------
 
+# While loops and the technique to break the infinity scenario!
+
+sample_list = range(10)
+
+# important points
+# while loop needs an empty variable to be declared before it could go forward
+# while loop also needs an incrementor to keep it up
+
+
+count = 0
+
+# for the while loop, the condition for breaking infinity is given in the loop syntax itself
+while count < len(range(10)):
+    print(count)
+    count += 1
+
+# Reverse while loop
+# remember if your count variable is not determined to have the max value
+another_count = len(range(10))-1
+# then your reverse loop will go infinitely! ensure to break your reverse loop properly!
+
+while another_count >= 0:
+    print(another_count)
+    another_count -= 1
+# ------------------------------------------------------------
+# Collections Module!! :-)
+
+# collections module has the following data structures for your usage
+
+
+# namedtuple()
+# A Named Tuple is a data structure in which you could customize
+# your preference of data which is added to the tuple
+
+# here is an example for the same
+
+
+# Define a namedtuple called 'Person' with fields 'name', 'age', and 'city'
+Person = namedtuple('Person', ['name', 'age', 'city'])
+
+# Create an instance of the namedtuple
+person1 = Person(name='Alice', age=30, city='New York')
+
+# Access the fields by name
+print(person1.name)  # Output: Alice
+print(person1.age)   # Output: 30
+print(person1.city)  # Output: New York
+
+# ---------------------------------------------------------------
+# deque()
+
+
+# Initialize a deque
+d = deque([1, 2, 3, 4])
+
+# Append elements
+d.append(5)
+d.appendleft(0)
+
+# Pop elements
+d.pop()        # Removes 5
+d.popleft()    # Removes 0
+
+# Rotate the deque
+d.rotate(1)    # Moves all elements one step to the right
+
+print(d)  # Output: deque([4, 1, 2, 3])
+# ---------------------------------------------------------------
+# Chainmap()
+
+# The significance of ChainMap lies in its ability to
+# manage multiple dictionaries as a single unit without merging them.
+# This is particularly useful when you want to maintain the original
+# dictionaries separately and access them collectively, with a
+# specific order of precedence.
+
+
+# Two dictionaries
+dict1 = {'a': 1, 'b': 2}
+dict2 = {'b': 3, 'c': 4}
+
+# Combine them with ChainMap
+combined = ChainMap(dict1, dict2)
+
+print(combined['a'])  # Output: 1 (from dict1)
+print(combined['b'])  # Output: 2 (from dict1, has priority)
+print(combined['c'])  # Output: 4 (from dict2)
+
+# Why Use ChainMap?
+# Dynamic View: Changes in the underlying dictionaries are immediately
+# reflected in the ChainMap.
+# No Data Duplication: Unlike merging, ChainMap does not create a
+# new dictionary, conserving memory.
+# Flexible Precedence: You can easily reorder or add/remove dictionaries
+# in the chain without altering the original data.
+# ChainMap is ideal when you need to work with multiple dictionaries in
+# a context where the precedence of keys is crucial, without actually merging the data.
+
+# ---------------------------------------------------------------
+
+# Counter()
+
+# OrderedDict()
+# defaultdict()
+# UserDict()
+# UserList()
+# UserString()
+
+
+# ------------------------------------------------------------
+# important magic method  __magic__
+
+# ------------------------------------------------------------
+# important decorators and custom decorators
+
+#
+# ------------------------------------------------------------
+# Abstract Base class and
+
+# ------------------------------------------------------------
+# itertools
+
+# -------------------------------------------------------------

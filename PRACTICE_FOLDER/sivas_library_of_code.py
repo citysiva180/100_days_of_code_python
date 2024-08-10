@@ -18,6 +18,7 @@
 
 # import code snippets and libraries
 
+from collections import OrderedDict
 from collections import ChainMap
 from collections import deque
 from collections import namedtuple
@@ -319,8 +320,25 @@ print(combined['c'])  # Output: 4 (from dict2)
 # ---------------------------------------------------------------
 
 # Counter()
-
+# ---------------------------------------------------------------
 # OrderedDict()
+from collections import OrderedDict
+car_list = OrderedDict()
+
+car_list['model'] = "S-Class"
+car_list['brand'] = "mercedes"
+car_list['year'] = 2024
+car_list['color'] = 'gold'
+
+print(car_list)
+
+car_list.move_to_end('model')
+
+print(car_list)
+
+
+# ---------------------------------------------------------------
+
 # defaultdict()
 # UserDict()
 # UserList()
